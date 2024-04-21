@@ -73,11 +73,13 @@ export default{
             const userData = {
                 username:this.username,
                 password:this.password
+                
             }
             axios.post('http://127.0.0.1:8000/apis/register',userData)
             .then(Response=>{
                 setTimeout(() => {this.$router.push('/Login')}, 1500)
             })
+           
 
            
 
