@@ -11,7 +11,7 @@ import json
 def register(request):
     if request.method=="POST":
         data = json.loads(request.body)
-        user = User.objects.create_user(username = data['username'], password = data['password'],email="",first_name="",last_name="")
+        user = User.objects.create_user(username = data['username'], password = data['password'])
         user.save()
         
         
@@ -26,10 +26,22 @@ def register(request):
         })    
 
 @csrf_exempt
-def login(request):
+def login_page(request):
     if request.method=="POST":
         login_data = json.loads(request.body)
         user = authenticate(request, username = login_data['username'], password = login_data['passText'])
+        if user is not None:
+            login(request,user)
+
+        
+    
+        return JsonResponse({'message': 'Login successful'})
+    
+@csrf_exempt
+def logout_page(request):
+    logout(request)
+    return JsonResponse({'message' : "Logout successful"})    
+     
 
 
         

@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form @submit.prevent="submitForm">
         <h1> Login</h1>
         <label for="">username</label>
         <input type="username" required v-model="username">
@@ -46,16 +46,13 @@ export default {
         
         },
         submitForm(){
-            axios.post('http://127.0.0.1:8000/apis/login',{
-                username:this.username,
-                passText:this.passText
-            })
+            axios.post('http://127.0.0.1:8000/apis/login',{username:this.username, passText:this.passText})
             .then(response=>{
-                const user={
-                    'username':response.data.username,
-
-                }
+                
                 setTimeout(()=>{this.$router.push('/')})
+            })
+            .catch(error=>{
+                console.log(error)
             })
 
 

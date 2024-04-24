@@ -50,7 +50,9 @@
   <ul>
     <li v-for="(todo, index) in skills" :key="index" class="">
       
-        <Checkbox v-model="checked" binary variant="filled" />
+      <div class="">
+        <Checkbox v-model="checked" :binary="true" />
+    </div>
      
       <span class="pill">{{ todo }}</span>
       <i class="bi bi-trash-fill" style="color: black;" @click="deleteList"></i>
@@ -93,11 +95,11 @@
     <div class="grid2">
      
       <br>
-      <div class="maths4"><h3>  Mathematics 4</h3> <div class="moodle">  <a href="" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;"> <a href="https://youtu.be/T4bE0K14QLU?si=pGGb6ZnlmJNbnWT7" style="color: white;" >Resources</a></div></div>
-      <div class="os"><h3>Operating Systems</h3> <div class="moodle">  <a href="" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;"> <a href="https://youtu.be/bkSWJJZNgf8?si=-KqZ83AtAxwF3_-G" style="color: white;">Resources</a></div></div>
-      <div class="dbms"><h3>DBMS</h3><div class="moodle">  <a href="" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;">  <a href="https://youtu.be/kBdlM6hNDAE?si=SfJBcYnaZntcuYTO" style="color: white;"> Resources</a></div></div>
-      <div class="aoa"><h3>Analysis of Algorithms</h3><div class="moodle">  <a href="" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;">  <a href="https://youtu.be/u8JZ9gU5o4g?si=Y8TQlLCvE5btpXxT" style="color: white;">Resources</a></div></div>
-      <div class="mp"><h3>Microprocessor</h3><div class="moodle">  <a href="https://youtu.be/nVumL1rZ768?si=zngsGC_3HanlYnyB" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;"> <a href="https://youtu.be/nVumL1rZ768?si=zngsGC_3HanlYnyB" style="color: white;">Resources</a></div></div>
+      <div class="maths4"><h3>  Mathematics 4</h3> <div class="moodle">  <a href="http://moodle.apsit.org.in/moodle/" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;"> <a href="https://youtu.be/T4bE0K14QLU?si=pGGb6ZnlmJNbnWT7" style="color: white;" >Resources</a></div></div>
+      <div class="os"><h3>Operating Systems</h3> <div class="moodle">  <a href="http://moodle.apsit.org.in/moodle/" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;"> <a href="https://youtu.be/bkSWJJZNgf8?si=-KqZ83AtAxwF3_-G" style="color: white;">Resources</a></div></div>
+      <div class="dbms"><h3>DBMS</h3><div class="moodle">  <a href="http://moodle.apsit.org.in/moodle/" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;">  <a href="https://youtu.be/kBdlM6hNDAE?si=SfJBcYnaZntcuYTO" style="color: white;"> Resources</a></div></div>
+      <div class="aoa"><h3>Analysis of Algorithms</h3><div class="moodle">  <a href="http://moodle.apsit.org.in/moodle/" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;">  <a href="https://youtu.be/u8JZ9gU5o4g?si=Y8TQlLCvE5btpXxT" style="color: white;">Resources</a></div></div>
+      <div class="mp"><h3>Microprocessor</h3><div class="moodle">  <a href="http://moodle.apsit.org.in/moodle/" style="color: white; text-align: center;">Notes</a>   </div>  <br> <div class="moodle" style="text-decoration: underline;color: white;"> <a href="https://youtu.be/nVumL1rZ768?si=zngsGC_3HanlYnyB" style="color: white;">Resources</a></div></div>
       
 
 
@@ -271,9 +273,15 @@ export default {
       
       
 
-      
-     this.skills.push(this.entry)
+      if(this.skills.length<5){
+        this.skills.push(this.entry)
       this.entry = ""
+      }
+      else
+      alert('you can only enter 5 tasks for the day')
+      
+
+     
       
     },
     deleteList(index){
