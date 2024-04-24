@@ -79,6 +79,10 @@ export default{
             .then(Response=>{
                 setTimeout(() => {this.$router.push('/Login')}, 1500)
             })
+            .catch(error=>{
+                console.error(error.response.data);
+
+            })
            
 
            
