@@ -33,9 +33,10 @@ def login_page(request):
         if user is not None:
             login(request,user)
 
+
         
     
-        return JsonResponse({'message': 'Login successful'})
+        return JsonResponse({'message': 'Login successful','username':request.user.username,'login_error':'No Error'})
     
 @csrf_exempt
 def logout_page(request):
