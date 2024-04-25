@@ -15,11 +15,16 @@
       <br>
     </div>
     <div class="navbar-right">
+     
+      
       
       <button class="login"> <router-link  to="/SignUp" style="color:white; text-decoration: none; font-weight: bold;">SignUp</router-link></button>
 
       <button class="login"><router-link to="/Login" style="color:white; text-decoration: none;font-weight: bold;">Login</router-link></button>
-     
+      
+      
+   
+      
     </div>
     
 
@@ -50,12 +55,13 @@
   <ul>
     <li v-for="(todo, index) in skills" :key="index" class="">
       
-      <div class="">
+      
         <Checkbox v-model="checked" :binary="true" />
-    </div>
+    
      
       <span class="pill">{{ todo }}</span>
-      <i class="bi bi-trash-fill" style="color: black;" @click="deleteList"></i>
+      <i class="bi bi-trash " @click="deleteList"></i>
+     
     </li>
   </ul>
 </div>
@@ -275,7 +281,7 @@ export default {
 
       if(this.skills.length<5){
         this.skills.push(this.entry)
-      this.entry = ""
+      this.entry = " "
       }
       else
       alert('you can only enter 5 tasks for the day')
