@@ -63,7 +63,12 @@
       <i class="bi bi-trash " @click="deleteList"></i>
      
     </li>
+    <div class="card-center">
+        <Toast>progress</Toast>
+        <ProgressBar :value="value1" />
+    </div>
   </ul>
+  
 </div>
 
       <div class="clock"><h1>calendar</h1>
@@ -266,6 +271,7 @@ export default {
       ],
       availableStatus:['to-do','in progress','done'],
       date: null,
+      checked:false
       
 
       
